@@ -5,7 +5,7 @@ problem is
 하나는 JS파일로, 하나는 CSS 파일로.
 컴포넌트를 이용하는 것의 요점은 어플리케이션의 부분 부분을 캡슐화하는 것이다.
 
-
+https://flatuicolors.com/
 1. CSS module. 
 create-react-app에서 사용가능하다.
 javaScript 객체로 사용할 수 있다.
@@ -19,10 +19,65 @@ className 기억하는데 고통스럽다.
 
 
 2. yarn add styled-components
+   JS를 이용한 CSS사용.
+   we are going to be able to create components 
+   that have styles 
+   style이 안에 있는 컴포넌트를 생성할 수 있다.
+
+* JavaScript안에 CSS가 있고, 컴포넌트를 바꾸면 된다.
+* React Router Dom에서 주어진 {Link}가 따로 있다. 
+* 브라우저 방식이 아닌 자바스크립트 방식으로 보내준다.
+* href는 React Router에 존재하지 않는다. 따라서, to를 사용한다.
+* You should not use <Link> outside a <Router>
+* <> Router는 오직 하나의 Child만 Render한다.
+* There is a styled-components extension on VSCode
+
+Styled-components => LOCAL
+
+Global style => 해당 사이트의 폰트를 설정하거나 SC를 설치할수도 있음.
+*yarn add styled-reset
+styled-reset은 styled-components를 이용해서 CSS를 초기화해서 0의 상태에서
+시작하게 한다.
+
+styled-components에는 props를 줄 수 있다.
 
 
+{withRouter} from  "react-router-dom"
+withRouter는 다른 컴포넌트를 감싸는 컴포넌트고, 감싸진 컴포넌트에 라우터 정보를 전달한다.
 
 
+Basically TWO components
+Wraps another component and gives him the information of the Router
+
+
+const Header = () =>  && export default withRouter(Header)
+Header가 withRouter라는 컴포넌트를 감싼 형태이기 때문에 props를 가질 수 있다.
+props는 history, location, match를 가지고 있다. => Router에서 왔다.
+withRouter 덕분에, 어떤 컴포넌트와도 연결할 수 있다.(props)
+props => location.pathname
+
+props를 확장할 수 있다.
+spread operator
+current는 boolean타입이다.
+current가 true이려면 pathname => ('/')
+current===true => pathname('/')
+withRouter 컴포넌트 덕분에, Header가 우리가 어디에 있는지 알 수 있다.
+{location : {pathname}}
+
+{/* {console.log(props)} */}
+
+## API Verbs
+
+- [ ] Now playing (Movie)
+- [ ] Top Rated (TV, Movie)
+- [ ] Popular (TV, Movie)
+
+yarn add axios
+"append_to_response"를 api에서 지원한다.
+ex) video, image append
+
+@을 query에 입력하면, URL에서 인코딩을 해줘야 한다.
+왜냐하면 String이기 때문!
 
 
 

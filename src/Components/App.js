@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import Header from "Components/Header"; // looking for index.js
 import Router from "Components/Router.js";
+import GlobalStyles from "Components/GlobalStyles.js";
 
 class App extends Component {
   render() {
     return (
       <>
-        <Header />
         <Router />
+        <GlobalStyles />
       </>
     );
   }
 }
-
 export default App;
