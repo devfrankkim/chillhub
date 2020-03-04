@@ -79,6 +79,22 @@ ex) video, image append
 @을 query에 입력하면, URL에서 인코딩을 해줘야 한다.
 왜냐하면 String이기 때문!
 
+리액트 컴포넌트 코딩패턴.
+
+cotainer presenter pattern
+컨테이너는 data를 가지고,
+state(상태값)를 가지고, api를 불러온다.
+
+presenter=> style
+container=> data
+
+1. 컨테이너를 먼저 만들고, 
+2. api 메소들을 추가한 다음, 
+3. 그 작업이 끝나면, 데이터를 보여주는 작업.
+
+When a component mounts, "hey, whats up?" form을 보여준다.
+
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
