@@ -33,7 +33,7 @@ export const tvApi = {
   popular: () => api.get("tv/popular"),
   airingToday: () => api.get("tv/airing_today"),
   tvDetail: id => api.get(`tv/${id}`),
-  searchTv: term =>
+  searchTV: term =>
     api.get("search/tv", {
       params: {
         query: encodeURIComponent(term)

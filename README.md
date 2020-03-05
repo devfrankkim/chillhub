@@ -94,11 +94,29 @@ container=> data
 
 When a component mounts, "hey, whats up?" form을 보여준다.
 
+해당 컴포넌트는 우리의 라우터의 위치를 알고 있다.
+Header is made with withRouter 
+because we are decorating it with withRouter.
+<Header>는 Route가 아니기 때문에 Router에서 location 정보를 받을 수 없다." 
 
 
+Detail은 해줄 필요가 없다.
+디폴트로 Router는, 모든 Route들에게 props를 준다. BUT <Header>
+리액트 라우터가 파라미터를 각각 다른 장소들에게 준다.
+
+How to detect if id is number 
+    const (parseInt or Number(id));
+this.props로 받아와서. (history.push("/")) 할 수 있다.
+
+https://medium.com/@umioh1109/react-es6-class-constructor%EC%97%90%EC%84%9C%EC%9D%98-super-9d53ba0611d9
 
 
+디폴트로 리액트 Router가 모든 정보를 Route들에게 준다.
+ex) 
+Header.js
+props 로케이션 정보를 헤더에게 주지 않는다. 
 
+rerender 하고 싶다면, this.isMovie 안두고, this.state에 둘거다.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
