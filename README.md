@@ -125,8 +125,13 @@ Children are the components that are placed inside the component.
 
 *display grid는 flexbox보다 좋다.
 
+CONTAINER 
+1.state를 만든다.
+2.state를 presenter로 전달한다.
 
-
+PRESENTER
+3.presenter는 state를 가지고 있다. 
+4.value를 tracking 할 수 있다.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

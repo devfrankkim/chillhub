@@ -11,11 +11,24 @@ export default class extends React.Component {
     error: null
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm(searchTerm);
     }
+  };
+
+  updateTerm = event => {
+    // console.log(event);
+    const {
+      target: { value }
+    } = event;
+    // console.log(value);
+    this.setState({
+      searchTerm: value
+    });
+    // event.preventDefault();
   };
 
   searchByTerm = async () => {
@@ -42,10 +55,11 @@ export default class extends React.Component {
       <SearchPresenter
         movieResults={movieResults}
         tvResults={tvResults}
-        searchTerm={searchTerm}
         loading={loading}
         error={error}
+        searchTerm={searchTerm}
         handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
   }
