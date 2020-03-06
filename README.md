@@ -118,6 +118,17 @@ props 로케이션 정보를 헤더에게 주지 않는다.
 
 rerender 하고 싶다면, this.isMovie 안두고, this.state에 둘거다.
 
+react에서는 children은 일반적으로 태그 사이의 값을 받는다.
+children은 div안에 넣기 위해서 포지셔닝한다.
+
+Children are the components that are placed inside the component.
+
+*display grid는 flexbox보다 좋다.
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
