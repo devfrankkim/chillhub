@@ -26,16 +26,27 @@ export default class extends React.Component {
       // location: { pathname }
     } = this.props;
     const { isMovie } = this.state;
-    // console.log(this.props);
+    console.log(this.props);
     const numberId = Number(id);
     if (isNaN(numberId)) {
       return push("/");
     }
     let result = null;
     try {
-      const { data: result } = isMovie
-        ? await moviesApi.movieDetail(Number(id))
-        : await tvApi.tvDetail(Number(id));
+      // const request = await moviesApi.movieDetail(Number(id))
+      // result = request.data;
+      // const request = await tvApi.tvDetail(Number(id))
+      // result = request.data;
+
+      // const { data: result } = isMovie
+      //   ? await moviesApi.movieDetail(Number(id))
+      //   : await tvApi.tvDetail(Number(id));
+
+      if (isMovie) {
+        ({ data: result } = await moviesApi.movieDetail(Number(id)));
+      } else {
+        ({ data: result } = await tvApi.tvDetail(Number(id)));
+      }
       console.log(result);
     } catch {
       this.setState({ error: "Can't find anything." });
@@ -47,7 +58,7 @@ export default class extends React.Component {
   render() {
     // console.log(this.props);
     const { result, loading, error } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
     return <DetailPresenter result={result} loading={loading} error={error} />;
   }
 }
