@@ -30,7 +30,7 @@ export default class extends React.Component {
       });
     } catch {
       this.setState({
-        error: "Can't find movies information."
+        error: `Your search did not have any matches`
       });
     } finally {
       this.setState({

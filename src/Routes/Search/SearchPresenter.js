@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Section from "Components/Section";
 import Loader from "Components/Loader";
+import Message from "Components/Message";
+import Error from "Components/Error";
 
 const Container = styled.div`
   padding: 5px 10px 10px 30px;
@@ -25,6 +27,7 @@ const SearchPresenter = ({
   movieResults,
   tvResults,
   searchTerm,
+  pastTerm,
   loading,
   error,
   handleSubmit,
@@ -58,6 +61,17 @@ const SearchPresenter = ({
         )}
       </>
     )}
+    {error && <Error color="#e74c3c" text={error} />}
+    {tvResults &&
+      movieResults &&
+      tvResults.length === 0 &&
+      movieResults.length === 0 && (
+        <Message
+          text={`Your search for "${pastTerm}" did not have any matches`}
+          Found
+          color="#95a5a6"
+        />
+      )}
   </Container>
 );
 // handleSubmit은 searchTerm과 search들을 찾는다.
@@ -67,6 +81,7 @@ SearchPresenter.propTypes = {
   movieResults: PropTypes.array,
   tvResults: PropTypes.array,
   searchTerm: PropTypes.string,
+  pastTerm: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,

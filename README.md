@@ -134,6 +134,19 @@ PRESENTER
 4.value를 tracking 할 수 있다.
 
 
+props 및 state는
+React의 컴포넌트 객체에서 DOM 객체를 제어할 때 꼭 필요하다.
+
+자식컴포넌트에서 부모 컴포넌트 객체에 데이터를 받아와서 출력해주고, 
+출력해주는 부분들을 수정할 수 있도록 만들어 줄 수도 있습니다.
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

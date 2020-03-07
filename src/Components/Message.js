@@ -22,11 +22,11 @@ const Text1 = styled.span`
 `;
 
 const Text2 = styled.p`
-  font-size: 15px;
+  font-size: 16px;
   padding: 0px 200px;
 `;
 
-const Error = ({ text }) => (
+const Message = ({ text }) => (
   <Container>
     <Text>{text}</Text>
     <Text1>Suggestions:</Text1>
@@ -35,8 +35,8 @@ const Error = ({ text }) => (
   </Container>
 );
 
-Error.propTypes = {
+Message.propTypes = {
   text: PropTypes.string.isRequired
 };
 
-export default Error;
+export default Message;
