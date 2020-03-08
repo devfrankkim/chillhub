@@ -137,12 +137,73 @@ PRESENTER
 props 및 state는
 React의 컴포넌트 객체에서 DOM 객체를 제어할 때 꼭 필요하다.
 
+
+PROPS 
+
 자식컴포넌트에서 부모 컴포넌트 객체에 데이터를 받아와서 출력해주고, 
 출력해주는 부분들을 수정할 수 있도록 만들어 줄 수도 있습니다.
 
+props는 개발에서 많이들 사용되는 용어인 프로퍼티(properties)의 줄임말이다.
+props는 React에서는 사용자가 컴포넌트에 전달해서 보관하길 원하는 데이터다.
+즉, 컴포넌트 내에서 데이터가 보관되면, 이 데이터는 수정되지 않고, 
+보존되어야 하는 법칙이 성립된다. 
+만약 props의 값을 변경하고자 할때는,
+컴포넌트 내부가 아닌, 
+부모 컴포넌트에서 이에 대한 부분이 변경되어야 한다.
+
+var post =  { title : '테스트 타이틀' }
+<Postdiv post={ post } />
+
+ 이처럼, 부모 객체에서는 자식객체에 post라는 데이터를 props 형태로 전달 해 줄수 있습니다.
+*** 부모 객체에서 넘겨주는 데이터이기 때문에, 
+*** 실제 사용하는 컴포넌트 내에서 props의 변경은 원칙적으로 금지되어 있습니다.
+
+props의 설정은 propTypes를 통해 객체를 설정하거나,
+getDefaultProps를 통해 props값을 받아올 수 있습니다.
+
+STATE
+
+React 컴포넌트는 
+Component 상태를 저장할 수 있다.
+props와의 차이점이라면, 
+state는 컴포넌트 내부에 존재하고 있기 떄문에,
+상태값이 변경이 가능하다.
+3
+
+
+1. getInitialState : component의 state 값을 초기화합니다
+
+2. componentWillMount : render가 실행 되기 전, data를 제어합니다.
+   this.setState({post : obj}); // this.setState를 통해서 state 값을 변경해 줍니다.
+
+3. render : 가상 DOM 객체를 복제합니다.
+4. returns {XML}
+
+5. propTypes : component의 기본값을 불러옵니다. (childComp)
+
+props 는 부모 컴포넌트가 자식 컴포넌트에게 주는 값입니다.
+자식 컴포넌트에서는 props 를 받아오기만하고,
+자식 컴포넌트에서는 props 를 받아오기만하고
+
+반면에 state 는 컴포넌트 내부에서 선언하며 내부에서 값을 변경 할 수 있습니다.
+
+propTypes is to check that the container is sending 
+the right props to the presenter.
 
 
 
+
+React 컴포넌트에서는 상태값(state)를 가지고 있습니다.
+상태값이란 실제로 우리가 보고있는 뷰 화면에서 출력되는 부분과 연관된 객체라고 보시면 됩니다.
+
+React 컴포넌트는 처음 이 객체가 생성될때, 화면에 관련된 상태값을 기본적으로 지정할 수 있게 됩니다.
+
+즉, 기본적으로 컴포넌트가 생성될때에 처음 시점에서 호출하는 화면에 관련된 객체를 정의하는 함수입니다. 
+
+
+
+
+props는 부모 컴포넌트에서 자식 컴포넌트의 데이터와 설정을 전달해 줄 수 있으며, 따라서 props를 컴포넌트 내에서 변경하는 일은 원칙적으로 금지되어 있습니다. 이를 위해서, 컴포넌트 내부에서 상태값을 제어할 수 있는 state를 사용하는데, state값은 this.state값을 직접 변경하는 것이 아닌, this.setState() 메소드를 통해서 상태값을 변경해 주어야 합니다.
 
 
 

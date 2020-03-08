@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Section from "Components/Section";
 import Loader from "Components/Loader";
 import Message from "Components/Message";
+import Poster from "Components/Poster";
 
 const Container = styled.div`
   padding: 5px 10px 10px 30px;
@@ -17,7 +18,18 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
       {topRated && topRated.length > 0 && (
         <Section title="Top Rated Shows">
           {topRated.map(show => (
-            <span key={show.id}>{show.name}</span>
+            <Poster
+              key={show.id}
+              id={show.id}
+              title={show.name}
+              imageUrl={show.poster_path}
+              rating={show.vote_average}
+              year={
+                show.first_air_date
+                  ? show.first_air_date.substring(0, 4)
+                  : show.first_air_date
+              }
+            />
           ))}
         </Section>
       )}
@@ -25,14 +37,36 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
       {popular && popular.length > 0 && (
         <Section title="Popular Shows">
           {popular.map(show => (
-            <span key={show.id}>{show.name}</span>
+            <Poster
+              key={show.id}
+              id={show.id}
+              title={show.name}
+              imageUrl={show.poster_path}
+              rating={show.vote_average}
+              year={
+                show.first_air_date
+                  ? show.first_air_date.substring(0, 4)
+                  : show.first_air_date
+              }
+            />
           ))}
         </Section>
       )}
       {airingToday && airingToday.length > 0 && (
         <Section title="airingToday Shows">
           {airingToday.map(show => (
-            <span key={show.id}>{show.name}</span>
+            <Poster
+              key={show.id}
+              id={show.id}
+              title={show.name}
+              imageUrl={show.poster_path}
+              rating={show.vote_average}
+              year={
+                show.first_air_date
+                  ? show.first_air_date.substring(0, 4)
+                  : show.first_air_date
+              }
+            />
           ))}
         </Section>
       )}

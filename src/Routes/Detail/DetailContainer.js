@@ -26,7 +26,7 @@ export default class extends React.Component {
       // location: { pathname }
     } = this.props;
     const { isMovie } = this.state;
-    console.log(this.props);
+    // console.log(this.props);
     const numberId = Number(id);
     if (isNaN(numberId)) {
       return push("/");
@@ -47,7 +47,7 @@ export default class extends React.Component {
       } else {
         ({ data: result } = await tvApi.tvDetail(Number(id)));
       }
-      console.log(result);
+      // console.log(result);
     } catch {
       this.setState({ error: "Can't find anything." });
     } finally {
