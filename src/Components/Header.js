@@ -13,6 +13,7 @@ const Header = styled.header`
   align-items: center;
   z-index: 10;
   box-shadow: 0px 5px 5px 2px rgba(1, 1, 1, 0.8);
+  background: #000;
 `;
 
 const List = styled.ul`
@@ -21,6 +22,10 @@ const List = styled.ul`
 const Item = styled.li`
   width: 40px;
   height: 40px;
+  text-shadow: ${props =>
+    props.current
+      ? "0 0 5px #228DFF, 0 0 10px #228DFF, 0 0 15px #228DFF, 0 0 20px #fff, 0 0 35px #fff, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF"
+      : "transparent"};
   text-align: center;
   border-bottom: 2px solid
     ${props => (props.current ? "#1dd1a1" : "transparent")};
