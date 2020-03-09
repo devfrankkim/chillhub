@@ -8,7 +8,9 @@ import Error from "Components/Error";
 import Poster from "Components/Poster";
 
 const Container = styled.div`
-  padding: 5px 10px 10px 30px;
+  padding: 30px 10px 10px 30px;
+  padding-top: 20px;
+  padding-bottom: 90px;
 `;
 
 const Form = styled.form`
