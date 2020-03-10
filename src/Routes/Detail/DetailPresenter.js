@@ -43,6 +43,36 @@ const Cover = styled.div`
   border-radius: 80px;
 `;
 
+const Data = styled.div`
+  width: 70%;
+  margin-left: 10px;
+`;
+
+const Title = styled.h2`
+  font-size: 32px;
+  margin-bottom: 10px;
+`;
+
+const ItemContainer = styled.div`
+  margin: 20px 0;
+`;
+
+const Item = styled.span`
+  font-size: 15px;
+`;
+
+const Divider = styled.span`
+  margin: 0 10px;
+`;
+
+const OverView = styled.p`
+  margin-top: 30px;
+  font-size: 17px;
+  opacity: 0.7;
+  line-height: 2;
+  width: 70%;
+`;
+
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
     <Loader />
@@ -57,6 +87,34 @@ const DetailPresenter = ({ result, loading, error }) =>
               : require("../../assets/noposter.png")
           }
         />
+        <Data>
+          <Title>
+            {result.original_title
+              ? result.original_title
+              : result.original_name}
+          </Title>
+          <ItemContainer>
+            <Item>
+              {result.release_date
+                ? result.release_date.substring(0, 4)
+                : result.first_air_date.substring(0, 4)}
+            </Item>
+            <Divider>∙</Divider>
+            <Item>
+              {result.runtime ? result.runtime : result.episode_run_time[0]} min
+            </Item>
+            <Divider>∙</Divider>
+            <Item>
+              {result.genres &&
+                result.genres.map((genre, index) =>
+                  index === result.genres.length - 1
+                    ? genre.name
+                    : `${genre.name} / `
+                )}
+            </Item>
+          </ItemContainer>
+          <OverView>{result.overview}</OverView>
+        </Data>
       </Content>
     </Container>
   );

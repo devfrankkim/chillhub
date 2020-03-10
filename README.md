@@ -191,7 +191,7 @@ propTypes is to check that the container is sending
 the right props to the presenter.
 
 
-
+SPAN DOESN'T HAVE MARGIN
 
 React 컴포넌트에서는 상태값(state)를 가지고 있습니다.
 상태값이란 실제로 우리가 보고있는 뷰 화면에서 출력되는 부분과 연관된 객체라고 보시면 됩니다.
