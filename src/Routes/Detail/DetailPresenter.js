@@ -133,21 +133,21 @@ const DetailPresenter = ({ result, loading, error }) =>
                   : result.first_air_date.substring(0, 4)}
               </Item>
             ) : (
-              "Unknown dates"
+              "  Unknown dates"
             )}
-            {result.runtime || result.episode_run_time ? (
+            <Divider>∙</Divider>
+            {result.runtime > 0 || result.episode_run_time > 0 ? (
               <>
-                <Divider>∙</Divider>
                 <Item>
                   {result.runtime ? result.runtime : result.episode_run_time[0]}
                   min
                 </Item>
               </>
             ) : (
-              "   ∙   Unknown min"
+              "    Unknown minutes"
             )}
             <Divider>∙</Divider>
-            {result.genres ? (
+            {result.genres.length > 0 ? (
               <>
                 <Item>
                   {result.genres.map((genre, index) =>
@@ -185,15 +185,16 @@ const DetailPresenter = ({ result, loading, error }) =>
               : result.overview}
           </OverView>
           <YoutubeContainer>
-            {result.key && (
+            {result.videos.results.length > 0 ? (
               <iframe
                 title={result.id}
                 id="youtubePlayer"
-                type="text/html"
-                width="580"
+                width="550"
                 height="300"
                 src={`https://www.youtube.com/embed/${result.videos.results[0].key}`}
               />
+            ) : (
+              "Videos not found"
             )}
           </YoutubeContainer>
         </Data>
