@@ -200,13 +200,41 @@ React 컴포넌트는 처음 이 객체가 생성될때, 화면에 관련된 상
 
 즉, 기본적으로 컴포넌트가 생성될때에 처음 시점에서 호출하는 화면에 관련된 객체를 정의하는 함수입니다. 
 
+      // const request = await moviesApi.movieDetail(Number(id))
+      // result = request.data;
+      // const request = await tvApi.tvDetail(Number(id))
+      // result = request.data;
 
+      // const { data: result } = isMovie
+      //   ? await moviesApi.movieDetail(Number(id))
+      //   : await tvApi.tvDetail(Number(id));
+
+            if (isMovie) {
+        ({ data: result } = await moviesApi.movieDetail(Number(id)));
+      } else {
+        ({ data: result } = await tvApi.tvDetail(Number(id)));
+      }
 
 
 props는 부모 컴포넌트에서 자식 컴포넌트의 데이터와 설정을 전달해 줄 수 있으며, 따라서 props를 컴포넌트 내에서 변경하는 일은 원칙적으로 금지되어 있습니다. 이를 위해서, 컴포넌트 내부에서 상태값을 제어할 수 있는 state를 사용하는데, state값은 this.state값을 직접 변경하는 것이 아닌, this.setState() 메소드를 통해서 상태값을 변경해 주어야 합니다.
 
 
+yarn add react-helmet
+이걸 활용하면, 웹 사이트의 header 를 수정하기 쉽다.
 
+1. Youtube Videos (map)
+2. id를 기반으로 링크 만들기.
+
+browser router는 gh-pages가 작동하지 않아서 hash router가 필요하다.
+
+
+
+****
+****
+yarn add gh-pages
+branch is called gh-pages 
+그리고 어떤 HTML을 push하면 HTML index.html을 가지고 있다.
+branch, merge, push등을 하기 귀찮기 때문에, gh-page가 대신 다 해준다.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

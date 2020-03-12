@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import logo from "../assets/loading.gif";
 
 const Container = styled.div`
   height: 100vh;
@@ -10,11 +11,13 @@ const Container = styled.div`
   margin-top: 50px;
 `;
 
+const Gif = styled.div``;
+
 export default () => (
   <Container>
-    <span role="img" aria-label="Loding">
-      ⏰
-    </span>
+    <Gif>
+      <img src={logo} alt="loading..." />{" "}
+    </Gif>
   </Container>
 );
 

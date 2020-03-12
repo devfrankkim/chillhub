@@ -1,7 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Loader from "Components/Loader";
+import Message from "Components/Message";
+import StarRatings from "react-star-ratings";
+import Youtube from "react-youtube";
+import imdb from "../../assets/imdb.png";
+import { Link } from "react-router-dom";
 
 const tmdbOriginalURL = "https://image.tmdb.org/t/p/original";
 
@@ -73,11 +79,37 @@ const OverView = styled.p`
   width: 70%;
 `;
 
+const Imdb = styled.div`
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  width: 16px;
+  background-size: cover;
+`;
+
+const YoutubeContainer = styled.div`
+  margin-top: 100px;
+  position: relative;
+`;
+
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
-    <Loader />
+    <>
+      <Helmet>
+        <title>Loading | Chillhub</title>
+      </Helmet>
+      <Loader />
+    </>
+  ) : error ? (
+    <Message />
   ) : (
     <Container>
+      <Helmet>
+        <title>
+          {result.original_title ? result.original_title : result.original_name}
+          | Chillhub
+        </title>
+      </Helmet>
       <Backdrop bgImage={`${tmdbOriginalURL}${result.backdrop_path}`} />
       <Content>
         <Cover
@@ -94,26 +126,76 @@ const DetailPresenter = ({ result, loading, error }) =>
               : result.original_name}
           </Title>
           <ItemContainer>
-            <Item>
-              {result.release_date
-                ? result.release_date.substring(0, 4)
-                : result.first_air_date.substring(0, 4)}
-            </Item>
+            {result.release_date || result.first_air_date ? (
+              <Item>
+                {result.release_date
+                  ? result.release_date.substring(0, 4)
+                  : result.first_air_date.substring(0, 4)}
+              </Item>
+            ) : (
+              "Unknown dates"
+            )}
+            {result.runtime || result.episode_run_time ? (
+              <>
+                <Divider>∙</Divider>
+                <Item>
+                  {result.runtime ? result.runtime : result.episode_run_time[0]}
+                  min
+                </Item>
+              </>
+            ) : (
+              "   ∙   Unknown min"
+            )}
             <Divider>∙</Divider>
-            <Item>
-              {result.runtime ? result.runtime : result.episode_run_time[0]} min
-            </Item>
+            {result.genres ? (
+              <>
+                <Item>
+                  {result.genres.map((genre, index) =>
+                    index === result.genres.length - 1
+                      ? genre.name
+                      : `${genre.name} / `
+                  )}
+                </Item>
+              </>
+            ) : (
+              " Unknown generes"
+            )}
             <Divider>∙</Divider>
-            <Item>
-              {result.genres &&
-                result.genres.map((genre, index) =>
-                  index === result.genres.length - 1
-                    ? genre.name
-                    : `${genre.name} / `
-                )}
-            </Item>
+            <Imdb>
+              <a
+                href={
+                  result.imdb_id
+                    ? `https://www.imdb.com/title/${result.imdb_id}`
+                    : "https://www.imdb.com"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://m.media-amazon.com/images/G/01/imdb/images/desktop-favicon-2165806970._CB484110913_.ico"
+                  width="26px"
+                  alt="imdb_icon"
+                />
+              </a>
+            </Imdb>
           </ItemContainer>
-          <OverView>{result.overview}</OverView>
+          <OverView>
+            {result.overview.length > 300
+              ? `${result.overview.substring(0, 200)}...`
+              : result.overview}
+          </OverView>
+          <YoutubeContainer>
+            {result.key && (
+              <iframe
+                title={result.id}
+                id="youtubePlayer"
+                type="text/html"
+                width="580"
+                height="300"
+                src={`https://www.youtube.com/embed/${result.videos.results[0].key}`}
+              />
+            )}
+          </YoutubeContainer>
         </Data>
       </Content>
     </Container>

@@ -17,14 +17,15 @@ export default class extends React.Component {
       isMovie: pathname.includes("/movie/")
     };
   }
+
   async componentDidMount() {
     const {
       match: {
         params: { id }
       },
       history: { push }
-      // location: { pathname }
     } = this.props;
+
     const { isMovie } = this.state;
     // console.log(this.props);
     const numberId = Number(id);

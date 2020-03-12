@@ -12,11 +12,11 @@ export default class extends React.Component {
   };
 
   async componentDidMount() {
-    // 2 OPTIONS 1.전체 API 요청을 여기서 할 수 있고, 2. 각각의 오청을 분리된 함수로 만들어서 따로 요청할 수 있다.
     try {
       const {
         data: { results: nowPlaying }
       } = await moviesApi.nowPlaying();
+      console.log(nowPlaying);
       const {
         data: { results: upComing }
       } = await moviesApi.upComing();
