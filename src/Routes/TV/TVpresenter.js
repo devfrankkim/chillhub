@@ -6,6 +6,7 @@ import Loader from "Components/Loader";
 import Message from "Components/Message";
 import Poster from "Components/Poster";
 import Helmet from "react-helmet";
+
 const Container = styled.div`
   padding: 30px 10px 10px 30px;
   padding-top: 20px;

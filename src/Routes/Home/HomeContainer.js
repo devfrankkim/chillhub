@@ -16,7 +16,7 @@ export default class extends React.Component {
       const {
         data: { results: nowPlaying }
       } = await moviesApi.nowPlaying();
-      console.log(nowPlaying);
+      // console.log(nowPlaying);
       const {
         data: { results: upComing }
       } = await moviesApi.upComing();

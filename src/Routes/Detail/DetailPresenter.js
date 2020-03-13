@@ -1,5 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import Season from "../Season";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
@@ -12,7 +19,7 @@ import { Link } from "react-router-dom";
 const tmdbOriginalURL = "https://image.tmdb.org/t/p/original";
 
 const Container = styled.div`
-  height: calc(100vh - 130px);
+  height: calc(100vh - 80px);
   width: 100%;
   position: relative;
   padding: 50px;
@@ -88,8 +95,24 @@ const Imdb = styled.div`
 `;
 
 const YoutubeContainer = styled.div`
-  margin-top: 100px;
+  margin-top: 30px;
   position: relative;
+`;
+
+const SeasonImg = styled.img`
+  width: 70px;
+  height: 110px;
+  margin-right: 5px;
+`;
+
+const SeasonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const SeasonTitle = styled.p`
+  font-size: 20px;
+  margin-bottom: 10px;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
@@ -179,11 +202,24 @@ const DetailPresenter = ({ result, loading, error }) =>
               </a>
             </Imdb>
           </ItemContainer>
+          <Item>
+            <StarRatings
+              rating={result.vote_average / 2}
+              starRatedColor="rgb(255, 0, 0)"
+              starDimension="25px"
+              starSpacing="3px"
+            ></StarRatings>
+          </Item>
           <OverView>
             {result.overview.length > 300
               ? `${result.overview.substring(0, 200)}...`
               : result.overview}
           </OverView>
+          {result.seasons && (
+            <Router>
+              <Link to="/show/:id/season"> Check other "Season"</Link>
+            </Router>
+          )}
           <YoutubeContainer>
             {result.videos.results.length > 0 ? (
               <iframe
@@ -194,7 +230,7 @@ const DetailPresenter = ({ result, loading, error }) =>
                 src={`https://www.youtube.com/embed/${result.videos.results[0].key}`}
               />
             ) : (
-              "Videos not found"
+              `"Youtube trailers not available"`
             )}
           </YoutubeContainer>
         </Data>

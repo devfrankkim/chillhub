@@ -19,8 +19,6 @@ const Form = styled.form`
   width: 100%;
 `;
 
-// form에서는 submit 이벤트를 차단한다.
-
 const Input = styled.input`
   all: unset;
   font-size: 20px;
