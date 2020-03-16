@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/chillhub/static/js/main.8b1b8756.chunk.js",
+    "main.js.map": "/chillhub/static/js/main.8b1b8756.chunk.js.map",
+    "runtime-main.js": "/chillhub/static/js/runtime-main.2cabd081.js",
+    "runtime-main.js.map": "/chillhub/static/js/runtime-main.2cabd081.js.map",
+    "static/js/2.39ca88a1.chunk.js": "/chillhub/static/js/2.39ca88a1.chunk.js",
+    "static/js/2.39ca88a1.chunk.js.map": "/chillhub/static/js/2.39ca88a1.chunk.js.map",
+    "index.html": "/chillhub/index.html",
+    "precache-manifest.0d9b24bdc543db9925b94e03601d66ed.js": "/chillhub/precache-manifest.0d9b24bdc543db9925b94e03601d66ed.js",
+    "service-worker.js": "/chillhub/service-worker.js",
+    "static/js/2.39ca88a1.chunk.js.LICENSE.txt": "/chillhub/static/js/2.39ca88a1.chunk.js.LICENSE.txt",
+    "static/media/imdb.png": "/chillhub/static/media/imdb.56b5d74d.png",
+    "static/media/loading.gif": "/chillhub/static/media/loading.e0a0a639.gif",
+    "static/media/noposter.png": "/chillhub/static/media/noposter.34a17caa.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2cabd081.js",
+    "static/js/2.39ca88a1.chunk.js",
+    "static/js/main.8b1b8756.chunk.js"
+  ]
+}
