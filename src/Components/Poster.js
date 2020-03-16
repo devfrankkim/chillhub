@@ -2,22 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import StarRatings from "react-star-ratings";
-import { moviesApi } from "../api";
 
 const tmdbBaseUrl = "https://image.tmdb.org/t/p/w200";
 
 const Container = styled.div`
   font-size: 12px;
 `;
-
-// const Rating = styled.span`
-//   bottom: 5px;
-//   right: 5px;
-//   position: absolute;
-//   opacity: 0;
-//   transition: opacity 0.1s linear;
-// `;
 
 const Rating = styled.span`
   bottom: 5px;

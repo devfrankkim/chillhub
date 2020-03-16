@@ -15,6 +15,7 @@ import StarRatings from "react-star-ratings";
 import Youtube from "react-youtube";
 import imdb from "../../assets/imdb.png";
 import { Link } from "react-router-dom";
+import PreviousPage from "../../Components/PreviousPage";
 
 const tmdbOriginalURL = "https://image.tmdb.org/t/p/original";
 
@@ -115,6 +116,16 @@ const SeasonTitle = styled.p`
   margin-bottom: 10px;
 `;
 
+// const title =
+//   result.origianl_title && result.origianl_title.length > substrLength
+//     ? `${result.original_title.substring(0, substrLength)}...`
+//     : result.original_title;
+
+// const name =
+//   result.original_name && result.original_name.length > substrLength
+//     ? `${result.original_name.substring(0, substrLength)}...`
+//     : result.original_name;
+
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
     <>
@@ -148,6 +159,7 @@ const DetailPresenter = ({ result, loading, error }) =>
               ? result.original_title
               : result.original_name}
           </Title>
+
           <ItemContainer>
             {result.release_date || result.first_air_date ? (
               <Item>
@@ -201,6 +213,11 @@ const DetailPresenter = ({ result, loading, error }) =>
                 />
               </a>
             </Imdb>
+            {result.original_title ? (
+              <PreviousPage pathName="tv" />
+            ) : (
+              <PreviousPage pathName="movie" />
+            )}
           </ItemContainer>
           <Item>
             <StarRatings

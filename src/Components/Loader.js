@@ -20,6 +20,3 @@ export default () => (
     </Gif>
   </Container>
 );
-
-// screen reader for blind people.
-// hey aria-label => Loading! ⏰
