@@ -69,12 +69,29 @@ const Divider = styled.span`
   margin: 0 10px;
 `;
 
+const OverviewContainer = styled("div")`
+  margin-bottom: 20px;
+`;
+
 const OverView = styled.p`
-  margin-top: 30px;
+  padding: 10px;
+  width: 75%;
   font-size: 17px;
-  opacity: 0.7;
-  line-height: 2;
-  width: 70%;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+`;
+
+const OverViewButton = styled("button")`
+  background-color: transparent;
+  cursor: pointer;
+  text-shadow: 0 0 5px #228dff, 0 0 20px #fff, 0 0 35px #fff, 0 0 40px #228dff;
+  font-size: 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  box-shadow: 5px 5px;
+  &:hover {
+    box-shadow: 0 1px 11px 1px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 const Imdb = styled.div`
@@ -90,7 +107,14 @@ const YoutubeContainer = styled.div`
   position: relative;
 `;
 
-const DetailPresenter = ({ result, loading, error }) =>
+const DetailPresenter = ({
+  result,
+  loading,
+  error,
+  handleClick,
+  isClick,
+  OverviewTextRef
+}) =>
   loading ? (
     <>
       <Helmet>
@@ -191,11 +215,19 @@ const DetailPresenter = ({ result, loading, error }) =>
               starSpacing="3px"
             ></StarRatings>
           </Item>
-          <OverView>
-            {result.overview.length > 300
-              ? `${result.overview.substring(0, 200)}...`
-              : result.overview}
-          </OverView>
+          <OverviewContainer>
+            <OverView ref={OverviewTextRef}>
+              {result.overview && result.overview.length > 200
+                ? `${result.overview.substring(0, 200)}....`
+                : result.overview}
+            </OverView>
+
+            {result.overview.length > 200 ? (
+              <OverViewButton onClick={() => handleClick(result.overview)}>
+                {isClick ? "To read more..." : "FOLD"}
+              </OverViewButton>
+            ) : null}
+          </OverviewContainer>
           <YoutubeContainer>
             {result.videos.results.length > 0 ? (
               <iframe
