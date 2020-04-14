@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "89133d335eda9965ad3f5979fb4f46d2",
+    "revision": "9faeedd796daaf6d13a05192fb0c2481",
     "url": "/chillhub/index.html"
   },
   {
-    "revision": "12e1a5680683e3add945",
-    "url": "/chillhub/static/js/2.6f7177f3.chunk.js"
+    "revision": "bb983bd491d74c9dc0a1",
+    "url": "/chillhub/static/js/2.da218e7d.chunk.js"
   },
   {
     "revision": "efa333c7fe1e59569f2b470893c92f10",
-    "url": "/chillhub/static/js/2.6f7177f3.chunk.js.LICENSE.txt"
+    "url": "/chillhub/static/js/2.da218e7d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "282d843b347153d6abd7",
-    "url": "/chillhub/static/js/main.d9d41b1b.chunk.js"
+    "revision": "b2d95abcb07fddef4a0a",
+    "url": "/chillhub/static/js/main.dbef4985.chunk.js"
   },
   {
     "revision": "9af811c5f8607ad4924b",

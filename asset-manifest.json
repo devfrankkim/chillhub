@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/chillhub/static/js/main.d9d41b1b.chunk.js",
-    "main.js.map": "/chillhub/static/js/main.d9d41b1b.chunk.js.map",
+    "main.js": "/chillhub/static/js/main.dbef4985.chunk.js",
+    "main.js.map": "/chillhub/static/js/main.dbef4985.chunk.js.map",
     "runtime-main.js": "/chillhub/static/js/runtime-main.2cabd081.js",
     "runtime-main.js.map": "/chillhub/static/js/runtime-main.2cabd081.js.map",
-    "static/js/2.6f7177f3.chunk.js": "/chillhub/static/js/2.6f7177f3.chunk.js",
-    "static/js/2.6f7177f3.chunk.js.map": "/chillhub/static/js/2.6f7177f3.chunk.js.map",
+    "static/js/2.da218e7d.chunk.js": "/chillhub/static/js/2.da218e7d.chunk.js",
+    "static/js/2.da218e7d.chunk.js.map": "/chillhub/static/js/2.da218e7d.chunk.js.map",
     "index.html": "/chillhub/index.html",
-    "precache-manifest.2a1290a4b6e020cce9198e4dbd20719b.js": "/chillhub/precache-manifest.2a1290a4b6e020cce9198e4dbd20719b.js",
+    "precache-manifest.87bee23852096a70c3f0e1a6612bcdcf.js": "/chillhub/precache-manifest.87bee23852096a70c3f0e1a6612bcdcf.js",
     "service-worker.js": "/chillhub/service-worker.js",
-    "static/js/2.6f7177f3.chunk.js.LICENSE.txt": "/chillhub/static/js/2.6f7177f3.chunk.js.LICENSE.txt",
+    "static/js/2.da218e7d.chunk.js.LICENSE.txt": "/chillhub/static/js/2.da218e7d.chunk.js.LICENSE.txt",
     "static/media/loading.gif": "/chillhub/static/media/loading.e0a0a639.gif",
     "static/media/noposter.png": "/chillhub/static/media/noposter.34a17caa.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2cabd081.js",
-    "static/js/2.6f7177f3.chunk.js",
-    "static/js/main.d9d41b1b.chunk.js"
+    "static/js/2.da218e7d.chunk.js",
+    "static/js/main.dbef4985.chunk.js"
   ]
 }
