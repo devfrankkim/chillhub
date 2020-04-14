@@ -1,20 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
-import Season from "../Season";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
 import Message from "Components/Message";
 import StarRatings from "react-star-ratings";
-import Youtube from "react-youtube";
-import imdb from "../../assets/imdb.png";
-import { Link } from "react-router-dom";
 import PreviousPage from "../../Components/PreviousPage";
 
 const tmdbOriginalURL = "https://image.tmdb.org/t/p/original";
@@ -99,32 +89,6 @@ const YoutubeContainer = styled.div`
   margin-top: 30px;
   position: relative;
 `;
-
-const SeasonImg = styled.img`
-  width: 70px;
-  height: 110px;
-  margin-right: 5px;
-`;
-
-const SeasonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const SeasonTitle = styled.p`
-  font-size: 20px;
-  margin-bottom: 10px;
-`;
-
-// const title =
-//   result.origianl_title && result.origianl_title.length > substrLength
-//     ? `${result.original_title.substring(0, substrLength)}...`
-//     : result.original_title;
-
-// const name =
-//   result.original_name && result.original_name.length > substrLength
-//     ? `${result.original_name.substring(0, substrLength)}...`
-//     : result.original_name;
 
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
@@ -214,9 +178,9 @@ const DetailPresenter = ({ result, loading, error }) =>
               </a>
             </Imdb>
             {result.original_title ? (
-              <PreviousPage pathName="tv" />
-            ) : (
               <PreviousPage pathName="movie" />
+            ) : (
+              <PreviousPage pathName="tv" />
             )}
           </ItemContainer>
           <Item>
@@ -232,11 +196,6 @@ const DetailPresenter = ({ result, loading, error }) =>
               ? `${result.overview.substring(0, 200)}...`
               : result.overview}
           </OverView>
-          {result.seasons && (
-            <Router>
-              <Link to="/show/:id/season"> Check other "Season"</Link>
-            </Router>
-          )}
           <YoutubeContainer>
             {result.videos.results.length > 0 ? (
               <iframe
